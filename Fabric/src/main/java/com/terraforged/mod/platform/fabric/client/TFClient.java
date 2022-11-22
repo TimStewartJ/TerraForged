@@ -30,6 +30,6 @@ import net.fabricmc.api.ClientModInitializer;
 public class TFClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        ClientSetup.INSTANCE.run();
+        ClientSetup.STAGE.run();
     }
 }

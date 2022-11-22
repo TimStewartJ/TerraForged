@@ -52,8 +52,8 @@ public abstract class TerraForged implements CommonAPI {
 	// keys break on other platforms, so we must register them under the minecraft namespace :/
 	public static final RegistryKey<ClimateType> CLIMATES = registry("minecraft:worldgen/climate");
 	public static final RegistryKey<NoiseCave> CAVES = registry("minecraft:worldgen/cave");
-	public static final RegistryKey<TerrainNoise> TERRAINS = registry("minecraft:worldgen/terrain_noise");
-	public static final RegistryKey<TerrainType> TERRAIN_TYPES = registry("minecraft:worldgen/terrain_type");
+	public static final RegistryKey<TerrainNoise> TERRAINS = registry("minecraft:worldgen/terrain/noise");
+	public static final RegistryKey<TerrainType> TERRAIN_TYPES = registry("minecraft:worldgen/terrain/type");
 	public static final RegistryKey<VegetationConfig> VEGETATIONS = registry("minecraft:worldgen/vegetation");
 
 	private final Supplier<Path> path;

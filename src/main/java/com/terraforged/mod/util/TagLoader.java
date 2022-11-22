@@ -34,10 +34,8 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.tags.TagKey;
 import net.minecraft.tags.TagManager;
 import net.minecraft.util.profiling.InactiveProfiler;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.resource.ResourcePackLoader;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -50,11 +48,11 @@ public class TagLoader {
         var sources = new ArrayList<PackResources>();
         sources.add(new VanillaPackResources(ServerPacksSource.BUILT_IN_METADATA, "minecraft"));
 
-        for (var mod : ModList.get().getMods()) {
-            if (mod.getOwningFile() == null) continue;
-
-            sources.add(ResourcePackLoader.createPackForMod(mod.getOwningFile()));
-        }
+//        for (var mod : ModList.get().getMods()) {
+//            if (mod.getOwningFile() == null) continue;
+//
+//            sources.add(ResourcePackLoader.createPackForMod(mod.getOwningFile()));
+//        }
 
         try (var resourceManager = new MultiPackResourceManager(PackType.SERVER_DATA, sources)) {
             bindTags(access, resourceManager);
@@ -92,7 +90,7 @@ public class TagLoader {
         registry.get().bindTags(tags);
     }
 
-    @Nonnull
+    @NotNull
     private static <T> CompletableFuture<T> complete(T t) {
         return CompletableFuture.completedFuture(t);
     }
